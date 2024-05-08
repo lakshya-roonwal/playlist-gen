@@ -29,6 +29,7 @@ const Search = ({ addToSelectedSongs }) => {
       }
 
       const data = await response.json();
+      console.log(data)
       setResults(data.data); // Set the search results
     } catch (err) {
       setError(err.message); // Set error message if there's an exception
