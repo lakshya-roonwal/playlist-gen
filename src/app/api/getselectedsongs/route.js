@@ -1,15 +1,15 @@
 import { connect } from "@/dbConfig/dbConfig";
 import Song from "@/models/Song";
-import { currentUser } from "@clerk/nextjs/server";
 
 import { NextRequest, NextResponse } from "next/server";
 
 connect();
 
 export async function GET(req) {
-  const user = await currentUser();
-  const userId=user.id;
   try {
+    // const { userId } = await req;
+    const { userId } = req.nextUrl.searchParams;
+
     // Fetch all songs but exclude `upvotedBy` and `downvotedBy`
     const songs = await Song.find({}); // Fetch all songs
 

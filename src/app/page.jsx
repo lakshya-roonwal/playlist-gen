@@ -8,30 +8,35 @@ import { useToast } from "@/components/ui/use-toast"
 import axios from "axios";
 
 export default function Home() {
+
   const { toast } = useToast()
   const {user} = useUser();
   const [selectedSongs, setSelectedSongs] = useState([]); // State for selected songs
   const [loading, setLoading] = useState(true); // To track the loading state
   const [error, setError] = useState(null); // To track errors during fetch
-
+  console.log(selectedSongs)
   useEffect(() => {
-    const fetchSelectedSongs = async () => {
-      try {
-        const response = await fetch("/api/getselectedsongs"); // Make a GET request to fetch selected songs
-        if (!response.ok) {
-          throw new Error("Failed to fetch selected songs");
+    if (user) {
+      const fetchSelectedSongs = async () => {
+        try {
+          setLoading(true); // Start loading
+          const response = await axios.get("/api/getselectedsongs", {
+            params: { userId: user.id }, // Use `params` to send the userId
+          });
+          if (response.status !== 200) {
+            throw new Error("Failed to fetch selected songs");
+          }
+          setSelectedSongs(response.data.songs); // Set the fetched data
+        } catch (error) {
+          setError(error.message); // Set the error message
+        } finally {
+          setLoading(false); // End loading
         }
-        const data = await response.json(); // Parse the response JSON
-        setSelectedSongs(data.songs); // Update the selectedSongs state with the fetched data
-      } catch (error) {
-        setError(error.message); // Update error state in case of failure
-      } finally {
-        setLoading(false); // Stop the loading state
-      }
-    };
-
-    fetchSelectedSongs(); // Fetch the data when the component mounts
-  }, []); // Empty dependency array to ensure this runs only once on mount
+      };
+  
+      fetchSelectedSongs(); // Call the function to fetch data
+    }
+  }, [user]);
 
   const addToSelectedSongs = async (newTrack) => {
     const isAlreadyPresent = selectedSongs.some(
