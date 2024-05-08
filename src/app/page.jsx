@@ -26,7 +26,10 @@ export default function Home() {
           if (response.status !== 200) {
             throw new Error("Failed to fetch selected songs");
           }
-          setSelectedSongs(response.data.songs); // Set the fetched data
+          if(response.data.msg==="Success")
+          {
+              setSelectedSongs(response.data.songs); // Set the fetched data
+          }
         } catch (error) {
           setError(error.message); // Set the error message
         } finally {
