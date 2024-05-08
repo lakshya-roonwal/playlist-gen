@@ -16,8 +16,8 @@ To get started with this project, follow the instructions below:
 ### Installation
 Clone this repository to your local machine:
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/lakshya-roonwal/playlist-gen.git
+cd playlist-gen
 ```
 
 Install the project dependencies:
@@ -54,4 +54,4 @@ MONGO_URL=mongodb://127.0.0.1:27017/your_database_name
 If you have any questions or need support, you can reach out to:
 - Twitter: [@lakshyaroonwal](https://twitter.com/lakshyaroonwal)
 
-Thank you for using the **Dominate Links** project!
+**Contributions are appriciated**
