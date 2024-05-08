@@ -5,10 +5,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 connect();
 
-export async function GET(req) {
+export async function POST(req) {
   try {
     // const { userId } = await req;
-    const { userId } = req.nextUrl.searchParams;
+    const { userId } =await req.json();
 
     // Fetch all songs but exclude `upvotedBy` and `downvotedBy`
     const songs = await Song.find({}); // Fetch all songs

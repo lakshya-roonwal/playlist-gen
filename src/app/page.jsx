@@ -20,8 +20,8 @@ export default function Home() {
       const fetchSelectedSongs = async () => {
         try {
           setLoading(true); // Start loading
-          const response = await axios.get("/api/getselectedsongs", {
-            params: { userId: user.id }, // Use `params` to send the userId
+          const response = await axios.post("/api/getselectedsongs", {
+            userId: user.id, 
           });
           if (response.status !== 200) {
             throw new Error("Failed to fetch selected songs");
