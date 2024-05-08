@@ -34,7 +34,8 @@ export async function GET(req) {
   } catch (error) {
     console.error("Error fetching songs:", error);
     return NextResponse.json({
-      error: "An error occurred while fetching songs.",
+      msg: "An error occurred while fetching songs.",
+      "error":error
     });
   }
 }
