@@ -131,7 +131,7 @@ const handleDownvote = async (songId,) => {
   }
 };
   return (
-    <main className="flex min-h-screen flex-col items-center px-24 p-4">
+    <main className="flex min-h-screen flex-col items-center md:px-24 p-4">
       <SignedIn>
       <h1 className="text-3xl font-bold">Public Coding Playlist</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4 md:p-8">
