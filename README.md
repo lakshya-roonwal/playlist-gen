@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Playlist Gen
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+A Public Playlist for all the coder so that we can share our song and vote on it 
 
 ## Getting Started
+To get started with this project, follow the instructions below:
 
-First, run the development server:
+### Prerequisites
+- Node.js (latest LTS version recommended)
+- npm or Yarn
+- MongoDB (for local development)
+- Spotify Developer Account
+- Clerk Account
 
+### Installation
+Clone this repository to your local machine:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install the project dependencies:
+```bash
+npm install
+or
+yarn install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Environment Variables
+Change the ```env.example``` to ```.env```
+```bash
+# Spotify Auth
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+SPOTIFY_REDIRECT_URI=http://localhost:3000/api/auth/callback
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Clerk Auth
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
 
-## Learn More
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
-To learn more about Next.js, take a look at the following resources:
+# Database
+MONGO_URL=mongodb://127.0.0.1:27017/your_database_name
+```
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[MIT](https://choosealicense.com/licenses/mit/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## **Contact**
 
-## Deploy on Vercel
+If you have any questions or need support, you can reach out to:
+- Twitter: [@lakshyaroonwal](https://twitter.com/lakshyaroonwal)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for using the **Dominate Links** project!
