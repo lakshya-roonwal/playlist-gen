@@ -2,7 +2,6 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import VoteButton from "./VoteButton";
 import { ChevronDown } from 'lucide-react';
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuRadioItem, DropdownMenuRadioGroup, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 import { useEffect, useState } from "react";
@@ -16,29 +15,21 @@ const SelectedSongs = ({
 }) => {
 
 
-  const [sortBy, setSortBy] = useState("votes")
-  const [filteredSongs, setFilteredSongs] = useState(selectedSongs);
+  const [sortBy, setSortBy] = useState("votes");
+  const [filteredSongs, setFilteredSongs] = useState([]);
 
-  useEffect(()=>{
-    setFilteredSongs(selectedSongs)
-  },[selectedSongs])
-
+  // Re-sort songs based on sorting criteria whenever selectedSongs or sortBy changes
   useEffect(() => {
     let sortedSongs;
 
-    if (sortBy === 'votes') {
-      // Sort by votes (highest to lowest)
-      sortedSongs = [...filteredSongs].sort((a, b) => b.votes - a.votes);
-    } else if (sortBy === 'alphabetical') {
-      // Sort alphabetically by name
-      sortedSongs = [...filteredSongs].sort((a, b) => a.name.localeCompare(b.name));
+    if (sortBy === "votes") {
+      sortedSongs = [...selectedSongs].sort((a, b) => b.votes - a.votes);
+    } else if (sortBy === "alphabetical") {
+      sortedSongs = [...selectedSongs].sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    // If you have time-based sorting, you can add it here
-    // e.g., `else if (sortCriteria === 'time') { ... }`
-
     setFilteredSongs(sortedSongs);
-  }, [sortBy]);
+  }, [selectedSongs, sortBy]);
 
   if (loading) {
     return (
