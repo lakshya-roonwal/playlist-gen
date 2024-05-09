@@ -33,10 +33,6 @@ const SelectedSongs = ({
       // Sort alphabetically by name
       sortedSongs = [...filteredSongs].sort((a, b) => a.name.localeCompare(b.name));
     }
-    else if (sortBy === 'chronological') {
-      // Sort alphabetically by name
-      sortedSongs = selectedSongs;
-    }
 
     // If you have time-based sorting, you can add it here
     // e.g., `else if (sortCriteria === 'time') { ... }`
@@ -81,7 +77,6 @@ const SelectedSongs = ({
           <DropdownMenuContent align="end">
             <DropdownMenuRadioGroup value={sortBy} onValueChange={setSortBy}>
               <DropdownMenuRadioItem value="votes">Most Votes</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="chronological">Chronological</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="alphabetical">Alphabetical</DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>
