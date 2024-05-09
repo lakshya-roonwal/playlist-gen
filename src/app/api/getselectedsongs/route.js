@@ -11,7 +11,7 @@ export async function POST(req) {
     const { userId } =await req.json();
 
     // Fetch all songs but exclude `upvotedBy` and `downvotedBy`
-    const songs = await Song.find({}).sort(['votes', 1]); // Fetch all songs
+    const songs = await Song.find({}); // Fetch all songs
 
     // Map over each song and determine whether it is upvoted or downvoted by the specified user
     const songsWithVoteStatus = songs.map((song) => {
