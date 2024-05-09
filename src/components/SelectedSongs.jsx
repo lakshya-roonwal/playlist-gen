@@ -14,25 +14,7 @@ const SelectedSongs = ({
   loading,
   error,
 }) => {
-  if (loading) {
-    return (
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold">Selected Songs</h2>
 
-        <div className="flex items-center gap-4 animate-pulse">
-          <div className="rounded-md bg-gray-200 dark:bg-gray-800 w-20 h-20" />
-          <div className="flex-1 space-y-2">
-            <div className="bg-gray-200 dark:bg-gray-800 h-5 w-3/4 rounded" />
-            <div className="bg-gray-200 dark:bg-gray-800 h-4 w-1/2 rounded" />
-          </div>
-        </div>
-      </div>
-    ); // Show a Skeleton loading while fetching
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>; // Show error message if fetching fails
-  }
 
   const [sortBy, setSortBy] = useState("votes")
   const [filteredSongs, setFilteredSongs] = useState(selectedSongs);
@@ -61,6 +43,26 @@ const SelectedSongs = ({
 
     setFilteredSongs(sortedSongs);
   }, [sortBy]);
+
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <h2 className="text-2xl font-bold">Selected Songs</h2>
+
+        <div className="flex items-center gap-4 animate-pulse">
+          <div className="rounded-md bg-gray-200 dark:bg-gray-800 w-20 h-20" />
+          <div className="flex-1 space-y-2">
+            <div className="bg-gray-200 dark:bg-gray-800 h-5 w-3/4 rounded" />
+            <div className="bg-gray-200 dark:bg-gray-800 h-4 w-1/2 rounded" />
+          </div>
+        </div>
+      </div>
+    ); // Show a Skeleton loading while fetching
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>; // Show error message if fetching fails
+  }
   
 
   return (
