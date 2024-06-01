@@ -25,6 +25,8 @@ Install the project dependencies:
 npm install
 or
 yarn install
+or 
+pnpm install
 ```
 
 3. Environment Variables
